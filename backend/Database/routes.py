@@ -9,7 +9,7 @@ from PyPDF2 import PdfReader
 from flask_cors import CORS
 # Create a Blueprint for database-related routes
 db_bp = Blueprint("db_bp", __name__, url_prefix="/db")
-CORS(db_bp,supports_credentials=True,allow_headers=True,origins="https://ink-grader-demo.vercel.app")
+CORS(db_bp,resources={r"/*": {"origins": "*"}})
 class ExamView(MethodView):
     @jwt_required()
     def post(self):
