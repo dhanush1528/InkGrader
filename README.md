@@ -25,7 +25,7 @@
 
   <h2>🧪 Backend (Flask)</h2>
   <p>Move to backend directory:</p>
-  <pre><code>cd my-flask-backend</code></pre>
+  <pre><code>cd backend</code></pre>
 
   <p>Create and activate a virtual environment:</p>
   <pre><code>python -m venv venv
