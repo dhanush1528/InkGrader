@@ -8,7 +8,7 @@ import traceback
 import base64
 from flask_jwt_extended import jwt_required,get_jwt_identity
 from werkzeug.utils import secure_filename
-from Agent import CloudGraderAgent
+from Agent import EvaluationAgent
 
 ocr_bp = Blueprint('ocr_bp', __name__,url_prefix='/ocr')
 OCR_API_KEY = os.getenv('OCR_API_KEY')
@@ -49,7 +49,7 @@ def test_ocr_agent():
             os.remove(file_path)
 
             # Grade the answer
-            grader = CloudGraderAgent()
+            grader = EvaluationAgent()
             grader.set_rubric_and_answers(question, processed_text)
             grading_result = grader.grade()
 
