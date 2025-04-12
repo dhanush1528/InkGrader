@@ -35,16 +35,17 @@ def test_ocr_agent():
     try:
         image = request.files.get("image")
         question = request.form.get("question")
+        marks = request.form.get("marks")
         db = get_db()
 
-        if image and question:
+        if image and question and marks:
             filename = secure_filename(image.filename)
             file_path = os.path.join(UPLOAD_FOLDER, filename)
             image.save(file_path)
 
             # OCR + preprocessing
             text = ocr_image_from_file(file_path)
-            processed_text = clean_text(text)
+            processed_text = clean_text(text) + " marks: "+ str(marks)
             os.remove(file_path)
 
             # Grade the answer
@@ -60,21 +61,22 @@ def test_ocr_agent():
 
             # Store in DB
             db.test.insert_one({
-                "rubric": question,
+                "question": question,
                 "student_answer": processed_text,
                 "grading_result": safe_grading_result
             })
-
+            print(safe_grading_result)
             return {
                 "message": "Graded and saved successfully",
-                "grading_result": safe_grading_result
+                "grading_result": safe_grading_result,
+                "extracted_text": processed_text,
             }, 200
 
         else:
             return {"message": "Wrong fields sent in request"}, 400
 
     except Exception:
-        return {"message": "Error: " + traceback.format_exc()}
+        return {"message": "Error: " + traceback.format_exc()},500
 
 
 @ocr_bp.route('/bulk', methods=['POST'])
