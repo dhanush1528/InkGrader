@@ -6,7 +6,7 @@ from flask_cors import CORS
 auth_bp = Blueprint('auth_bp',__name__,url_prefix = '/auth')
 
 
-CORS(auth_bp,supports_credentials=True,allow_headers=True,origins="https://ink-grader-demo.vercel.app/")
+CORS(auth_bp,supports_credentials=True,allow_headers=True,origins="https://ink-grader-demo.vercel.app")
 
 @auth_bp.route("/refresh", methods=["POST"])
 @jwt_required(refresh=True)

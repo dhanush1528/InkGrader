@@ -12,7 +12,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 jwt = JWTManager(app)
 BLOCKLIST = set()
-CORS(app,supports_credentials=True)
+CORS(app,supports_credentials=True,allow_headers=True,origins="https://ink-grader-demo.vercel.app")
 
 @app.route("/", methods=["GET"])
 def home():
