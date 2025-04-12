@@ -57,6 +57,4 @@ if __name__ == "__main__":
     app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=30)
     app.config["JWT_REFRESH_TOKEN_EXPIRES"] = timedelta(minutes=120)
     app.config["JWT_SECRET_KEY"] = JWT_SECRET_KEY
-    app.config["DEBUG"] = True
-    app.config["PORT"] = os.getenv("PORT", 3000)
     app.run()
