@@ -45,7 +45,7 @@ const App = () => {
     setResult(null);
 
     try {
-      const apiUrl = process.env.BACKEND_URL+"/ocr/demo";
+      const apiUrl = import.meta.env.BACKEND_URL+"/ocr/demo";
       const formDataToSend = new FormData();
 
       formDataToSend.append("image", selectedFile);
