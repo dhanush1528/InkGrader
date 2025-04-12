@@ -45,7 +45,7 @@ const App = () => {
     setResult(null);
 
     try {
-      const apiUrl = "http://127.0.0.1:5000/ocr/demo";
+      const apiUrl = process.env.BACKEND_URL+"/ocr/demo";
       const formDataToSend = new FormData();
 
       formDataToSend.append("image", selectedFile);
