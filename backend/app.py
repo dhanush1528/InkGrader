@@ -3,14 +3,16 @@ from dotenv import load_dotenv
 import os
 from datetime import timedelta
 from flask_jwt_extended import JWTManager,jwt_required,get_jwt
-from OCRSpace.ocr_requests import ocr_bp
+from OCRSpace.routes import ocr_bp
 from Auth.routes import auth_bp
 from Database.routes import db_bp
+from flask_cors import CORS
+
 
 app = Flask(__name__)
 jwt = JWTManager(app)
 BLOCKLIST = set()
-
+CORS(app)
 
 @app.route("/", methods=["GET"])
 def home():
