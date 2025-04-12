@@ -6,9 +6,10 @@ from Database.db_utils import get_db, insert_questions
 import traceback
 from Agent import ExtractionAgent
 from PyPDF2 import PdfReader
+from flask_cors import CORS
 # Create a Blueprint for database-related routes
 db_bp = Blueprint("db_bp", __name__, url_prefix="/db")
-
+CORS(db_bp)
 class ExamView(MethodView):
     @jwt_required()
     def post(self):

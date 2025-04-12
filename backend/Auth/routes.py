@@ -1,12 +1,12 @@
 from flask import request, Blueprint
 from flask_jwt_extended import jwt_required , get_jwt_identity,create_access_token,create_refresh_token,get_jwt
 from Database.db_utils import create_student_user,create_teacher_user,authenticate_user
-
+from flask_cors import CORS
 
 auth_bp = Blueprint('auth_bp',__name__,url_prefix = '/auth')
 
 
-
+CORS(auth_bp)
 
 @auth_bp.route("/refresh", methods=["POST"])
 @jwt_required(refresh=True)

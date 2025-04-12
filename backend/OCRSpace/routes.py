@@ -9,8 +9,9 @@ import base64
 from flask_jwt_extended import jwt_required,get_jwt_identity
 from werkzeug.utils import secure_filename
 from Agent import EvaluationAgent
-
+from flask_cors import CORS
 ocr_bp = Blueprint('ocr_bp', __name__,url_prefix='/ocr')
+CORS(ocr_bp)
 OCR_API_KEY = os.getenv('OCR_API_KEY')
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploads')  # Define the upload folder
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # Ensure the folder exists
