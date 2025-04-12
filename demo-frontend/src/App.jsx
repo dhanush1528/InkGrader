@@ -74,7 +74,6 @@ const App = () => {
   return (
     <div className="brutal-container">
       <div className="brutal-content">
-        {/* Header */}
         <header className="brutal-header">
           <div className="brutal-logo">
             <img src={logo} width="50" height="auto" alt="InkGrader Logo" />
@@ -84,12 +83,9 @@ const App = () => {
           </div>
           <p className="brutal-tagline">INTELLIGENT ANSWER ASSESSMENT SYSTEM</p>
         </header>
-
-        {/* Main Form */}
         <main className="brutal-card">
           <h2 className="brutal-card-title">ASSESSMENT DETAILS</h2>
           <div className="brutal-form">
-            {/* Question Input */}
             <div className="brutal-form-group">
               <label className="brutal-label">QUESTION</label>
               <textarea
@@ -143,16 +139,12 @@ const App = () => {
                 </label>
               </div>
             </div>
-
-            {/* Error Display */}
             {error && (
               <div className="brutal-error">
                 <AlertCircle className="brutal-icon-small" />
                 <p>{error}</p>
               </div>
             )}
-
-            {/* Submit Button */}
             <button
               className="brutal-button primary full-width"
               onClick={handleSubmit}
