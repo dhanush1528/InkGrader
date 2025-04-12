@@ -12,7 +12,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 jwt = JWTManager(app)
 BLOCKLIST = set()
-CORS(app)
+CORS(app,supports_credentials=True)
 
 @app.route("/", methods=["GET"])
 def home():

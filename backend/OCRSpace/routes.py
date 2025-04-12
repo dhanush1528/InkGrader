@@ -11,7 +11,7 @@ from werkzeug.utils import secure_filename
 from Agent import EvaluationAgent
 from flask_cors import CORS
 ocr_bp = Blueprint('ocr_bp', __name__,url_prefix='/ocr')
-CORS(ocr_bp)
+CORS(ocr_bp,supports_credentials=True)
 OCR_API_KEY = os.getenv('OCR_API_KEY')
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploads')  # Define the upload folder
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # Ensure the folder exists

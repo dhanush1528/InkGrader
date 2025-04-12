@@ -6,7 +6,7 @@ from flask_cors import CORS
 auth_bp = Blueprint('auth_bp',__name__,url_prefix = '/auth')
 
 
-CORS(auth_bp)
+CORS(auth_bp,supports_credentials=True)
 
 @auth_bp.route("/refresh", methods=["POST"])
 @jwt_required(refresh=True)
