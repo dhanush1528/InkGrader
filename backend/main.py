@@ -14,7 +14,7 @@ jwt = JWTManager(app)
 BLOCKLIST = set()
 CORS(app,supports_credentials=True,allow_headers=True,origins="https://ink-grader-demo.vercel.app")
 
-@app.route("/", methods=["GET"])
+@app.route("/", methods=["GET","POST"])
 def home():
     return {
         "message": "InkGrader Backend API"
