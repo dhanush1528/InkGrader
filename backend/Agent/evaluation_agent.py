@@ -6,7 +6,7 @@ from Agent.models import QuestionEvaluation,GradingResult
 
 
 # Class-based wrapper for grading logic
-class CloudGraderAgent:
+class EvaluationAgent:
     def __init__(self):
         self.agent = Agent(model="groq:qwen-qwq-32b", result_type=GradingResult)
         self._rubric: str = ""

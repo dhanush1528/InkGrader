@@ -11,3 +11,10 @@ class QuestionEvaluation(BaseModel):
 class GradingResult(BaseModel):
     evaluations: List[QuestionEvaluation] = Field(..., description="List of evaluated questions.")
     total_marks: int = Field(..., description="Total marks awarded.")
+    
+class Question(BaseModel):
+    text: str = Field(..., description="The question text.")
+    marks: int = Field(..., description="Marks allocated for the question.")
+
+class Rubric(BaseModel):
+    questions: List[Question] = Field(..., description="List of questions with their marks.")
